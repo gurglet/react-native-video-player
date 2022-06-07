@@ -1,18 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Image, ImageBackground, Platform, StyleSheet, Text, TextInput, TouchableOpacity, View, ViewPropTypes } from 'react-native';
+import { Image, ImageBackground, Platform, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Video from 'react-native-video'; // eslint-disable-line
+import { ViewPropTypes } from 'deprecated-react-native-prop-types';
 
 const BackgroundImage = ImageBackground || Image; // fall back to Image if RN < 0.46
-
-let ViewPropTypesVar;
-
-if (ViewPropTypes) {
-  ViewPropTypesVar = ViewPropTypes;
-} else {
-  ViewPropTypesVar = View.propTypes;
-}
 
 const getDurationTime = (duration) => {
   const padTimeValueString = (value) => value.toString().padStart(2, '0');
@@ -603,7 +596,7 @@ VideoPlayer.propTypes = {
   paused: PropTypes.bool,
   defaultMuted: PropTypes.bool,
   muted: PropTypes.bool,
-  style: ViewPropTypesVar.style,
+  style: ViewPropTypes.style,
   controlsTimeout: PropTypes.number,
   disableControlsAutoHide: PropTypes.bool,
   disableFullscreen: PropTypes.bool,
@@ -615,24 +608,24 @@ VideoPlayer.propTypes = {
   pauseOnPress: PropTypes.bool,
   fullScreenOnLongPress: PropTypes.bool,
   customStyles: PropTypes.shape({
-    wrapper: ViewPropTypesVar.style,
+    wrapper: ViewPropTypes.style,
     video: Video.propTypes.style,
-    videoWrapper: ViewPropTypesVar.style,
-    controls: ViewPropTypesVar.style,
-    playControl: ViewPropTypesVar.style,
-    controlButton: ViewPropTypesVar.style,
+    videoWrapper: ViewPropTypes.style,
+    controls: ViewPropTypes.style,
+    playControl: ViewPropTypes.style,
+    controlButton: ViewPropTypes.style,
     controlIcon: Icon.propTypes.style,
     playIcon: Icon.propTypes.style,
-    seekBar: ViewPropTypesVar.style,
-    seekBarFullWidth: ViewPropTypesVar.style,
-    seekBarProgress: ViewPropTypesVar.style,
-    seekBarKnob: ViewPropTypesVar.style,
-    seekBarKnobSeeking: ViewPropTypesVar.style,
-    seekBarBackground: ViewPropTypesVar.style,
+    seekBar: ViewPropTypes.style,
+    seekBarFullWidth: ViewPropTypes.style,
+    seekBarProgress: ViewPropTypes.style,
+    seekBarKnob: ViewPropTypes.style,
+    seekBarKnobSeeking: ViewPropTypes.style,
+    seekBarBackground: ViewPropTypes.style,
     thumbnail: Image.propTypes.style,
-    playButton: ViewPropTypesVar.style,
+    playButton: ViewPropTypes.style,
     playArrow: Icon.propTypes.style,
-    durationText: ViewPropTypesVar.style
+    durationText: ViewPropTypes.style
   }),
   onEnd: PropTypes.func,
   onProgress: PropTypes.func,
